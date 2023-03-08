@@ -1,0 +1,1 @@
+# A sampler for zipkin
