@@ -1,0 +1,190 @@
+[
+  {
+    "traceId": "ac8c8928d5c67d14f0587b9454bcb2b1",
+    "parentId": "f5e7963f7ba67e15",
+    "id": "fc9f0f268e5e82b9",
+    "name": "childtest2",
+    "timestamp": 1678254538086192,
+    "duration": 83913,
+    "localEndpoint": {
+      "serviceName": "tw"
+    },
+    "annotations": [
+      {
+        "timestamp": 1678254538170096,
+        "value": "child test 2 end."
+      }
+    ],
+    "tags": {
+      "environment": "qa",
+      "otel.library.name": "tw",
+      "service.name": "tw",
+      "service.version": "v0.1.0",
+      "telemetry.sdk.language": "go",
+      "telemetry.sdk.name": "opentelemetry",
+      "telemetry.sdk.version": "1.14.0",
+      "test key": "test value"
+    }
+  },
+  {
+    "traceId": "ac8c8928d5c67d14f0587b9454bcb2b1",
+    "parentId": "4b0b96b5584af08e",
+    "id": "f5e7963f7ba67e15",
+    "name": "childtest1",
+    "timestamp": 1678254538086192,
+    "duration": 138206,
+    "localEndpoint": {
+      "serviceName": "tw"
+    },
+    "tags": {
+      "environment": "qa",
+      "otel.library.name": "tw",
+      "service.name": "tw",
+      "service.version": "v0.1.0",
+      "telemetry.sdk.language": "go",
+      "telemetry.sdk.name": "opentelemetry",
+      "telemetry.sdk.version": "1.14.0"
+    }
+  },
+  {
+    "traceId": "ac8c8928d5c67d14f0587b9454bcb2b1",
+    "parentId": "d2bffb3a75748e69",
+    "id": "4b0b96b5584af08e",
+    "name": "childtest",
+    "timestamp": 1678254538086191,
+    "duration": 243239,
+    "localEndpoint": {
+      "serviceName": "tw"
+    },
+    "tags": {
+      "environment": "qa",
+      "otel.library.name": "tw",
+      "service.name": "tw",
+      "service.version": "v0.1.0",
+      "telemetry.sdk.language": "go",
+      "telemetry.sdk.name": "opentelemetry",
+      "telemetry.sdk.version": "1.14.0"
+    }
+  },
+  {
+    "traceId": "ac8c8928d5c67d14f0587b9454bcb2b1",
+    "parentId": "914d4c954d84f6cb",
+    "id": "d2bffb3a75748e69",
+    "kind": "SERVER",
+    "name": "get /example/tracer-child",
+    "timestamp": 1678254538086177,
+    "duration": 243322,
+    "localEndpoint": {
+      "serviceName": "tw"
+    },
+    "tags": {
+      "environment": "qa",
+      "http.flavor": "1.1",
+      "http.method": "GET",
+      "http.route": "GET /example/tracer-child",
+      "http.scheme": "http",
+      "http.status_code": "200",
+      "http.user_agent": "Go-http-client/1.1",
+      "net.host.name": "tw",
+      "net.host.port": "6600",
+      "net.sock.peer.addr": "::1",
+      "net.sock.peer.port": "52025",
+      "otel.library.name": "tw",
+      "service.name": "tw",
+      "service.version": "v0.1.0",
+      "telemetry.sdk.language": "go",
+      "telemetry.sdk.name": "opentelemetry",
+      "telemetry.sdk.version": "1.14.0"
+    }
+  },
+  {
+    "traceId": "ac8c8928d5c67d14f0587b9454bcb2b1",
+    "parentId": "dc82f4a340e72abe",
+    "id": "e268336734faa9b7",
+    "name": "test2",
+    "timestamp": 1678254538483698,
+    "duration": 83595,
+    "localEndpoint": {
+      "serviceName": "tw"
+    },
+    "tags": {
+      "environment": "qa",
+      "otel.library.name": "tw",
+      "service.name": "tw",
+      "service.version": "v0.1.0",
+      "telemetry.sdk.language": "go",
+      "telemetry.sdk.name": "opentelemetry",
+      "telemetry.sdk.version": "1.14.0"
+    }
+  },
+  {
+    "traceId": "ac8c8928d5c67d14f0587b9454bcb2b1",
+    "parentId": "914d4c954d84f6cb",
+    "id": "dc82f4a340e72abe",
+    "name": "test1",
+    "timestamp": 1678254538083312,
+    "duration": 538535,
+    "localEndpoint": {
+      "serviceName": "tw"
+    },
+    "tags": {
+      "environment": "qa",
+      "otel.library.name": "tw",
+      "service.name": "tw",
+      "service.version": "v0.1.0",
+      "telemetry.sdk.language": "go",
+      "telemetry.sdk.name": "opentelemetry",
+      "telemetry.sdk.version": "1.14.0"
+    }
+  },
+  {
+    "traceId": "ac8c8928d5c67d14f0587b9454bcb2b1",
+    "parentId": "bf0496b280383d9e",
+    "id": "914d4c954d84f6cb",
+    "name": "test",
+    "timestamp": 1678254538083304,
+    "duration": 538744,
+    "localEndpoint": {
+      "serviceName": "tw"
+    },
+    "tags": {
+      "environment": "qa",
+      "otel.library.name": "tw",
+      "service.name": "tw",
+      "service.version": "v0.1.0",
+      "telemetry.sdk.language": "go",
+      "telemetry.sdk.name": "opentelemetry",
+      "telemetry.sdk.version": "1.14.0"
+    }
+  },
+  {
+    "traceId": "ac8c8928d5c67d14f0587b9454bcb2b1",
+    "id": "bf0496b280383d9e",
+    "kind": "SERVER",
+    "name": "get /example/tracer",
+    "timestamp": 1678254537979162,
+    "duration": 642964,
+    "localEndpoint": {
+      "serviceName": "tw"
+    },
+    "tags": {
+      "environment": "qa",
+      "http.flavor": "1.1",
+      "http.method": "GET",
+      "http.route": "GET /example/tracer",
+      "http.scheme": "http",
+      "http.status_code": "200",
+      "http.user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
+      "net.host.name": "tw",
+      "net.host.port": "6600",
+      "net.sock.peer.addr": "::1",
+      "net.sock.peer.port": "52019",
+      "otel.library.name": "tw",
+      "service.name": "tw",
+      "service.version": "v0.1.0",
+      "telemetry.sdk.language": "go",
+      "telemetry.sdk.name": "opentelemetry",
+      "telemetry.sdk.version": "1.14.0"
+    }
+  }
+]

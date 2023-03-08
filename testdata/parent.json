@@ -1,0 +1,77 @@
+[
+  {
+    "id": "e42f190737c5a3cc",
+    "traceId": "f5231a63cb7c8459ee6c4c1b1cbb2ad4",
+    "parentId": "f2aec309a9faf101",
+    "localEndpoint": {
+      "serviceName": "local-dev"
+    },
+    "name": "tracer-child",
+    "timestamp": 1678246093475258,
+    "duration": 2169292,
+    "tags": {
+      "op.status_code": "Unset",
+      "op.status_description": "The default unset status."
+    }
+  },
+  {
+    "id": "f2aec309a9faf101",
+    "traceId": "f5231a63cb7c8459ee6c4c1b1cbb2ad4",
+    "parentId": "1be7b2caeac9f43c",
+    "localEndpoint": {
+      "serviceName": "local-dev"
+    },
+    "name": "test2",
+    "timestamp": 1678246093393975,
+    "duration": 2250590,
+    "tags": {
+      "op.status_code": "Unset",
+      "op.status_description": "The default unset status."
+    }
+  },
+  {
+    "id": "1be7b2caeac9f43c",
+    "traceId": "f5231a63cb7c8459ee6c4c1b1cbb2ad4",
+    "parentId": "3767d018e0b281ed",
+    "localEndpoint": {
+      "serviceName": "local-dev"
+    },
+    "name": "test1",
+    "timestamp": 1678246090393578,
+    "duration": 5251235,
+    "tags": {
+      "op.status_code": "Unset",
+      "op.status_description": "The default unset status."
+    }
+  },
+  {
+    "id": "3767d018e0b281ed",
+    "traceId": "f5231a63cb7c8459ee6c4c1b1cbb2ad4",
+    "parentId": "00e81e64396be5fc",
+    "localEndpoint": {
+      "serviceName": "local-dev"
+    },
+    "name": "tracer",
+    "timestamp": 1678246090393559,
+    "duration": 5251261,
+    "tags": {
+      "op.status_code": "Unset",
+      "op.status_description": "The default unset status."
+    }
+  },
+  {
+    "id": "00e81e64396be5fc",
+    "traceId": "f5231a63cb7c8459ee6c4c1b1cbb2ad4",
+    "parentId": null,
+    "localEndpoint": {
+      "serviceName": "local-dev"
+    },
+    "name": "GET /api/core/tracer",
+    "timestamp": 1678246090388977,
+    "duration": 5256663,
+    "tags": {
+      "op.status_code": "Unset",
+      "op.status_description": "The default unset status."
+    }
+  }
+]
