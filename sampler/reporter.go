@@ -51,7 +51,7 @@ func (r *reporter) report(trace contract.Trace) {
 		return
 	}
 
-	if resp.StatusCode != http.StatusOK {
+	if resp.StatusCode >= 400 && resp.StatusCode < 600 {
 		log.Error("post spans error.", resp.StatusCode)
 
 		body, err := io.ReadAll(resp.Body)
