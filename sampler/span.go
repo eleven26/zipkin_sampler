@@ -22,7 +22,8 @@ func NewSpans(data []byte) ([]contract.Span, error) {
 
 	var result []contract.Span
 	for _, span := range spans {
-		result = append(result, &span)
+		copySpan := span
+		result = append(result, &copySpan)
 	}
 
 	return result, nil

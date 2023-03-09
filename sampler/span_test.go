@@ -31,6 +31,17 @@ func TestNewSpans(t *testing.T) {
 	assert.NotNil(t, err)
 }
 
+func TestNewSpans2(t *testing.T) {
+	bs := ([]byte)(`[{"parentId": "123"}, {"parentId": "456"}]`)
+	spans, err := NewSpans(bs)
+	assert.Nil(t, err)
+	assert.Len(t, spans, 2)
+	assert.False(t, spans[0].IsRoot())
+
+	assert.Equal(t, "123", spans[0].ParentId())
+	assert.Equal(t, "456", spans[1].ParentId())
+}
+
 func TestSpan(t *testing.T) {
 	span := Span{"timestamp": 123}
 	assert.True(t, span.IsRoot())
