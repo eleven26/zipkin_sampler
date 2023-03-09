@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"zipkin_sampler/sampler/mocks"
+	"github.com/eleven26/zipkin_sampler/sampler/mocks"
 )
 
 func TestTimebaseSampler(t *testing.T) {

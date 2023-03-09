@@ -2,7 +2,8 @@ package mocks
 
 import (
 	"github.com/stretchr/testify/mock"
-	"zipkin_sampler/contract"
+
+	"github.com/eleven26/zipkin_sampler/contract"
 )
 
 var _ contract.Span = &Span{}

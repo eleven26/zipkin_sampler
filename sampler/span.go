@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cast"
 
-	"zipkin_sampler/contract"
+	"github.com/eleven26/zipkin_sampler/contract"
 )
 
 var _ contract.Span = &Span{}

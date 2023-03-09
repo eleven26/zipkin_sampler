@@ -1,4 +1,4 @@
-module zipkin_sampler
+module github.com/eleven26/zipkin_sampler
 
 go 1.18
 

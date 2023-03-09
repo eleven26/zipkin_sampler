@@ -8,7 +8,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"zipkin_sampler/contract"
+	"github.com/eleven26/zipkin_sampler/contract"
 )
 
 var _ contract.Reporter = &reporter{}

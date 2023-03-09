@@ -6,8 +6,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"zipkin_sampler/contract"
-	"zipkin_sampler/sampler/mocks"
+	"github.com/eleven26/zipkin_sampler/contract"
+	"github.com/eleven26/zipkin_sampler/sampler/mocks"
 )
 
 func TestAppend(t *testing.T) {

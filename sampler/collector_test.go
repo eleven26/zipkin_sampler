@@ -11,8 +11,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 
-	"zipkin_sampler/contract"
-	"zipkin_sampler/sampler/mocks"
+	"github.com/eleven26/zipkin_sampler/contract"
+	"github.com/eleven26/zipkin_sampler/sampler/mocks"
 )
 
 func TestNewCollector(t *testing.T) {

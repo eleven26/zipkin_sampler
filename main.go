@@ -9,7 +9,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 
-	"zipkin_sampler/sampler"
+	"github.com/eleven26/zipkin_sampler/sampler"
 )
 
 func init() {

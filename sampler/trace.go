@@ -3,7 +3,7 @@ package sampler
 import (
 	"time"
 
-	"zipkin_sampler/contract"
+	"github.com/eleven26/zipkin_sampler/contract"
 )
 
 var _ contract.Trace = &Trace{}
