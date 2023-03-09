@@ -41,3 +41,8 @@ func (t *Trace) Expired() bool {
 	args := t.Called()
 	return args.Bool(0)
 }
+
+func (t *Trace) Spans() []contract.Span {
+	args := t.Called()
+	return args.Get(0).([]contract.Span)
+}

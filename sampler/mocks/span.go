@@ -8,7 +8,7 @@ import (
 var _ contract.Span = &Span{}
 
 type Span struct {
-	mock.Mock
+	mock.Mock `json:"-"`
 }
 
 func (s *Span) TraceId() string {

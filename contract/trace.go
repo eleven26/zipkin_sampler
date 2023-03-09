@@ -1,6 +1,9 @@
 package contract
 
-import "time"
+import (
+	"io"
+	"time"
+)
 
 type Trace interface {
 	IsRoot() bool
@@ -9,6 +12,7 @@ type Trace interface {
 	Append([]Span)
 	Expired() bool
 	Merge(Trace)
+	Spans() []Span
 }
 
 type Sampler interface {
@@ -23,10 +27,15 @@ type Span interface {
 }
 
 type Store interface {
-	Add(Trace)
+	Add(Trace) Trace
 	Remove(traceId string)
+	Len() int
 }
 
 type Reporter interface {
-	Report(Trace) error
+	Report(Trace)
+}
+
+type Collector interface {
+	Collect(io.ReadCloser) error
 }

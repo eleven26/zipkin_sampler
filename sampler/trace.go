@@ -16,11 +16,11 @@ type Trace struct {
 	expiredAt      time.Time
 }
 
-func NewTrace(duration time.Duration, spans []contract.Span) (contract.Trace, error) {
+func NewTrace(duration time.Duration, spans []contract.Span) contract.Trace {
 	trace := Trace{expiredAt: time.Now().Add(duration)}
 	trace.Append(spans)
 
-	return &trace, nil
+	return &trace
 }
 
 func (t *Trace) IsRoot() bool {
@@ -56,4 +56,8 @@ func (t *Trace) Expired() bool {
 
 func (t *Trace) Merge(trace contract.Trace) {
 	t.Append(trace.(*Trace).spans)
+}
+
+func (t *Trace) Spans() []contract.Span {
+	return t.spans
 }

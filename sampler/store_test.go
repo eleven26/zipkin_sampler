@@ -3,6 +3,7 @@ package sampler
 import (
 	"reflect"
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/assert"
 
@@ -10,7 +11,7 @@ import (
 )
 
 func TestStoreAdd(t *testing.T) {
-	s := NewStore()
+	s := NewStore(time.Hour)
 	trace := new(mocks.Trace)
 	trace.On("TraceId").Return("1")
 
@@ -38,7 +39,7 @@ func TestStoreAdd(t *testing.T) {
 }
 
 func TestStoreRemove(t *testing.T) {
-	s := NewStore()
+	s := NewStore(time.Hour)
 	trace := new(mocks.Trace)
 	trace.On("TraceId").Return("1")
 
@@ -47,5 +48,18 @@ func TestStoreRemove(t *testing.T) {
 	assert.Len(t, reflect.ValueOf(s).Interface().(*store).traces, 1)
 
 	s.Remove("1")
+	assert.Len(t, reflect.ValueOf(s).Interface().(*store).traces, 0)
+}
+
+func TestStoreCleanExpires(t *testing.T) {
+	s := NewStore(time.Millisecond)
+	trace := new(mocks.Trace)
+	trace.On("TraceId").Return("1")
+	trace.On("Expired").Return(true)
+
+	s.Add(trace)
+	time.Sleep(time.Millisecond * 100)
+	trace.AssertExpectations(t)
+
 	assert.Len(t, reflect.ValueOf(s).Interface().(*store).traces, 0)
 }
