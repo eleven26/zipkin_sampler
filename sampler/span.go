@@ -3,14 +3,12 @@ package sampler
 import (
 	"encoding/json"
 
-	"github.com/spf13/cast"
-
 	"github.com/eleven26/zipkin_sampler/contract"
 )
 
 var _ contract.Span = &Span{}
 
-type Span map[string]interface{}
+type Span map[string]json.RawMessage
 
 func NewSpans(data []byte) ([]contract.Span, error) {
 	var spans []Span
@@ -29,36 +27,24 @@ func NewSpans(data []byte) ([]contract.Span, error) {
 	return result, nil
 }
 
-func (s *Span) TraceId() string {
-	return (*s)["traceId"].(string)
+func (s *Span) IsRoot() bool {
+	return s.ParentId() == ""
 }
 
-func (s *Span) IsRoot() bool {
-	v, ok := (*s)["parentId"]
-	if !ok {
-		return true
-	}
-
-	if v == "" {
-		return true
-	}
-
-	return v == nil
+func (s *Span) TraceId() string {
+	var v string
+	_ = json.Unmarshal((*s)["traceId"], &v)
+	return v
 }
 
 func (s *Span) ParentId() string {
-	v, ok := (*s)["parentId"]
-	if !ok {
-		return ""
-	}
-
-	if v == nil {
-		return ""
-	}
-
-	return v.(string)
+	var v string
+	_ = json.Unmarshal((*s)["parentId"], &v)
+	return v
 }
 
 func (s *Span) Timestamp() int64 {
-	return cast.ToInt64((*s)["timestamp"])
+	var v int64
+	_ = json.Unmarshal((*s)["timestamp"], &v)
+	return v
 }

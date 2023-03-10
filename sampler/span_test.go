@@ -1,6 +1,7 @@
 package sampler
 
 import (
+	"encoding/json"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -43,23 +44,39 @@ func TestNewSpans2(t *testing.T) {
 }
 
 func TestSpan(t *testing.T) {
-	span := Span{"timestamp": 123}
+	span, err := mapToSpan(map[string]any{"timestamp": 123})
+	assert.Nil(t, err)
 	assert.True(t, span.IsRoot())
 	assert.Equal(t, "", span.ParentId())
 	assert.Equal(t, int64(123), span.Timestamp())
 
-	span = Span{"parentId": "123", "timestamp": 123}
+	span, err = mapToSpan(map[string]any{"parentId": "123", "timestamp": 123})
+	assert.Nil(t, err)
 	assert.False(t, span.IsRoot())
 	assert.Equal(t, "123", span.ParentId())
 	assert.Equal(t, int64(123), span.Timestamp())
 
-	span = Span{"parentId": nil, "timestamp": 123}
+	span, err = mapToSpan(map[string]any{"parentId": nil, "timestamp": 123})
+	assert.Nil(t, err)
 	assert.True(t, span.IsRoot())
 	assert.Equal(t, "", span.ParentId())
 	assert.Equal(t, int64(123), span.Timestamp())
 
-	span = Span{"parentId": "", "timestamp": 123, "traceId": "123456"}
+	span, err = mapToSpan(map[string]any{"parentId": "", "timestamp": 123, "traceId": "123456"})
+	assert.Nil(t, err)
 	assert.True(t, span.IsRoot())
 	assert.Equal(t, "", span.ParentId())
 	assert.Equal(t, "123456", span.TraceId())
+}
+
+func mapToSpan(m map[string]any) (Span, error) {
+	bs, err := json.Marshal(m)
+	if err != nil {
+		return nil, err
+	}
+
+	var span Span
+	err = json.Unmarshal(bs, &span)
+
+	return span, err
 }
