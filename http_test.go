@@ -50,6 +50,7 @@ func BenchmarkServeHTTP(b *testing.B) {
 		go serveHTTP("9433", server.URL)
 	}
 
+	b.ReportAllocs()
 	// post => 9443 => server
 	for i := 0; i < b.N; i++ {
 		resp, err := http.Post(url, contentType, strings.NewReader(spans))
