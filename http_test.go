@@ -47,7 +47,7 @@ func BenchmarkServeHTTP(b *testing.B) {
 			w.WriteHeader(http.StatusAccepted)
 		}))
 
-		go serveHTTP("9433", server.URL)
+		go serveHTTP("9433", server.URL, 5000)
 	}
 
 	b.ReportAllocs()

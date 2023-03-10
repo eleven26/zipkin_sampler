@@ -26,19 +26,21 @@ func main() {
 		Run: func(cmd *cobra.Command, args []string) {
 			port, _ := cmd.Flags().GetString("port")
 			endpoint, _ := cmd.Flags().GetString("endpoint")
+			t, _ := cmd.Flags().GetInt("time")
 
 			fmt.Println("listen on port:", port)
 			fmt.Println("zipkin endpoint:", endpoint)
 
-			serveHTTP(port, endpoint)
+			serveHTTP(port, endpoint, t)
 		},
 		Args: cobra.ExactArgs(0),
 	}
 
 	cmd.Flags().StringP("port", "p", "9422", "zipkin sampler port.")
 	cmd.Flags().StringP("endpoint", "e", "http://192.168.2.168:9411/api/v2/spans", "zipkin collector endpoint.")
+	cmd.Flags().IntP("time", "t", 5000, "sampling time.")
 
-	//_ = cmd.MarkFlagRequired("endpoint")
+	_ = cmd.MarkFlagRequired("endpoint")
 
 	err := cmd.Execute()
 	if err != nil {
@@ -46,10 +48,10 @@ func main() {
 	}
 }
 
-func serveHTTP(port, endpoint string) {
+func serveHTTP(port, endpoint string, t int) {
 	reporter := sampler.NewReporter(
 		endpoint, // zipkin server
-		sampler.NewTimeBaseSampler(time.Second*5), // 采集超过5秒的trace
+		sampler.NewTimeBaseSampler(time.Millisecond*time.Duration(t)), // 采集超过指定时间的trace
 	)
 	collector := sampler.NewCollector(
 		time.Minute*10, // 超过 30分钟，没有等到 root trace 就丢弃
