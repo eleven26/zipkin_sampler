@@ -27,3 +27,7 @@ Flags:
 * `--port`: The port to listen on (default 9422)
 * `--endpoint`: Zipkin server endpoint
 * `--time`: The minimum time of trace to send to zipkin server (default 5000, in milliseconds)
+
+## Architecture
+
+![Architecture](./arch.png)
